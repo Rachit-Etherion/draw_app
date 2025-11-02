@@ -9,7 +9,12 @@ import { JWT_SECRET } from '@repo/backend-common/config';
 
     const decoded = jwt.verify(token,JWT_SECRET) as {userId : string};
 
+    if (!decoded || !decoded.userId) {
+      return res.status(403).json({ message: "Invalid token" });
+    }
+
     if(decoded) {
+        // console.log(decoded.userId);
         req.userId = decoded.userId;
         next();
     } else {
