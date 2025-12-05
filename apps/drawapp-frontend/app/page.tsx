@@ -16,9 +16,11 @@ export default function Home() {
               <a href="#how-it-works" className="text-slate-600 hover:text-slate-900 transition-colors">How It Works</a>
               <a href="#pricing" className="text-slate-600 hover:text-slate-900 transition-colors">Pricing</a>
             </div>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105">
-              Get Started
-            </button>
+            <Link href={"/signin"}>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
       </nav>

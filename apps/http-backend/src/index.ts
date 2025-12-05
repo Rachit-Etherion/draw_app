@@ -159,4 +159,36 @@ app.get("/room/:slug", async (req, res) => {
     });
 });
 
+app.get("/api/verify", middleware, async (req, res) => {
+    return res.json({ message: "Token is valid" });
+});
+
+app.get("/api/rooms", middleware, async (req, res) => {
+
+    try {
+        const rooms = await prismaClient.room.findMany({
+            take: 50,
+            orderBy: {
+                id: 'desc'
+            },
+            select: {
+                id: true,
+                slug: true,
+                createdAt: true,
+                admin: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
+        });
+
+        return res.json({ 
+            rooms
+        });
+    } catch(err) {
+        return res.status(500).json({ message: "Internal server error" });
+    }
+});
+
 app.listen(3003);

@@ -1,3 +1,11 @@
+# TODO
+fix circle creation
+complete add pencile functionality
+add panning and xooming functionality
+SignIn page and SignUp page
+Dashboard Page
+Authorization
+
 # Turborepo starter
 
 This Turborepo starter is maintained by the Turborepo core team.
